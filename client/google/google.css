@@ -1,0 +1,12 @@
+/* GOOGLE MAP */
+
+.bg-map {
+    background:#f44336;
+    margin-top:25px;
+}
+
+.map-container {
+    width: 100%;
+    max-width: 100%;
+    height:500px;
+}

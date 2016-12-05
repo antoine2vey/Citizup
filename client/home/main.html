@@ -1,0 +1,24 @@
+<head>
+    <title>Visiting Cities !</title>
+    <meta charset="UTF-8"/>
+</head>
+
+<body>
+    <!--   {{> main}} -->
+</body>
+
+<template name="main">
+    <header>
+        {{> navbar}}
+    </header>
+    <div class="container-fluid">
+        <main>
+            {{> yield}}
+        </main>
+    </div>
+    <div class="container-fluid">
+        <footer>
+            {{> footer }}
+        </footer>
+    </div>
+</template>

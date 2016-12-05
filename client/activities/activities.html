@@ -1,0 +1,102 @@
+<template name="places">
+    <div class="row">
+        <div class="intro" style=" background-image: url('/images/hero.jpg'); background-attachment:fixed; background-size:cover;">
+            <h1>{{name}}</h1>
+         {{#if currentUser}}
+                <button style="{{likeDisplay}}" class="like-btn material-btn shadow-1">I like it <i class="fa fa-heart"></i></button>
+                <button style="{{NotlikeDisplay}}" class="unlike-btn material-btn shadow-1">I don't like it <i class="fa fa-times"></i></button>
+            {{/if}}
+            <h4>{{comments}} <i class="fa fa-comments"></i></h4>
+            <h4>{{likes}} <i class="fa fa-heart"></i></h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="description-container shadow-1">
+                <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                        {{#each i in picture}}
+                        <img src="{{i}}" class="img-responsive img-city-single" alt="img-city"/>
+                        {{/each}}
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        {{description}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        {{#each a in this.comments}}
+            <div class="col-xs-4">
+                <h4>{{a.user.email}}</h4>
+                <p>{{a.text}}</p>
+            </div>
+        {{/each}}
+    </div>
+    <div class="row">
+        <div class="col-xs-offset-4 col-xs-4">
+            <form class="add-comments">
+                <textarea name="text" id="comment-zone" cols="75" rows="6"></textarea>
+                <button type="submit" class="material-btn comment-btn shadow-1">Add a comment <i class="fa fa-paper-plane"></i></button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <h2>Other places</h2>
+            <hr>
+        </div>
+        <div class="col-xs-12">
+            <div class="places-container shadow-1">
+                <div class="row">
+                    {{#each p in others}}
+                        {{#if isPlaces p}}
+                            {{#if notsame p}}
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <img src="{{p.picture}}" class="img-responsive img-places shadow-1" alt="img-place"/>
+                                    <a href="/activities/{{p._id}}">
+                                        <h4>{{p.name}}</h4>
+                                        <p>See the place</p>
+                                    </a>
+                                </div>
+                            {{/if}}
+                        {{/if}}
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <h2>Other events</h2>
+            <hr>
+        </div>
+        <div class="col-xs-12">
+            <div class="events-container shadow-1">
+                <div class="row">
+                    {{#each p in others}}
+                        {{#if isEvents p}}
+                            {{#if notsame p}}
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <img src="{{p.picture}}" class="img-responsive img-events shadow-1" alt="img-event"/>
+                                    <a href="/activities/{{p._id}}">
+                                        <h4>{{p.name}}</h4>
+                                        <p>See the place</p>
+                                    </a>
+                                </div>
+                            {{/if}}
+                        {{/if}}
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row bg-map shadow-inset">
+        <div class="col-md-offset-3 col-md-6">
+            <div class="map-container">
+                {{> googleMap name="CityLocalisation" options=mapOptions}}
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,133 @@
+/* CITY LIST */
+
+.img-box {
+    margin-top:25px;
+    transition:0.2s ease;
+}
+
+.img-box:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.img-size {
+    overflow:hidden;
+    height:265px;
+}
+
+.img-city {
+    width:100%;
+    margin:0 auto;
+    overflow:hidden;
+}
+
+.caption {
+    text-align:center;
+    padding-bottom:20px;
+}
+
+.caption h3 {
+    margin-top: 0;
+    font-size: 20px;
+    text-transform:uppercase;
+}
+
+.material-btn {
+    font-size:15px;
+    font-weight:600;
+    text-transform:uppercase;
+    padding:1rem 2rem;
+    background:#f44336;
+    color:#ffffff;
+    border:none;
+    border-radius:2px;
+    letter-spacing: 0.5px;
+    text-align:center;
+    transition:0.2s ease;
+}
+
+.material-btn:hover {
+    background:#ef5350;
+    color:#ffffff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.like-btn {
+    font-size:15px;
+    font-weight:600;
+    text-transform:uppercase;
+    padding:1rem 2rem;
+    background:#f44336;
+    color:#ffffff;
+    border:none;
+    border-radius:2px;
+    letter-spacing: 0.5px;
+    text-align:center;
+    transition:0.2s ease;
+}
+
+.like-btn:hover {
+    background:#ef5350;
+    color:#ffffff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+#comment-zone {
+    border-radius:2px;
+}
+
+.form-container {
+    padding-top:50px;
+    padding-bottom:50px;
+}
+
+.activities-box {
+    margin-top:25px;
+    transition:0.2s ease;
+}
+
+.activities-box:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.img-sizes {
+    overflow:hidden;
+    height:125px;
+}
+
+.img-places {
+    width:100%;
+    margin:0 auto;
+    overflow:hidden;
+}
+
+
+/* CITY SINGLE */
+
+.description-container {
+    margin-top:25px;
+    padding:25px;
+    font-size:22px;
+    font-weight:400;
+}
+
+.places-container {
+    margin-top:25px;
+    padding:25px;
+}
+
+.events-container {
+    margin-top:25px;
+    padding:25px;
+}
+
+.img-city-single {
+    height:300px;
+}
+
+.img-places {
+    height:150px;
+}
+
+.img-events {
+    height:150px;
+}

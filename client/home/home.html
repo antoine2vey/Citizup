@@ -1,0 +1,65 @@
+<template name="home">
+    <div class="row">
+        <div class="intro" style=" background-image: url('/images/hero.jpg'); background-attachment:fixed; background-size:cover;">
+            <h1>TraveLog</h1>
+            <h3>Branch out your travel plans</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <h2>Current Cities</h2>
+            <hr>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="row">
+                {{#each c in cityliste}}
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="img-box shadow-1">
+                            <div class="img-size">
+                                <img src="{{c.picture}}" class="img-responsive img-city" alt="img">
+                            </div>
+                            <br/>
+                            <div class="caption">
+                                <h3>{{c.name}}</h3>
+                                <hr/>
+                                <a href="/city/{{c._id}}" class="material-btn shadow-1">See the city <i class="fa fa-eye"></i></a>
+                                {{#if isOwner c.owner}}
+                                    <a href="#" id="{{c._id}}" onclick="return false;" class="material-btn shadow-1 remove-btn">Remove <i class="fa fa-times"></i></a>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        {{#if currentUser}}
+            <div class="row bg-form shadow-inset">
+                <div class="col-md-offset-4 col-md-4">
+                    <form class="shadow-2 new-cities-form" role="search">
+                        <div class="field">
+                            <label for="name" class="field-label">Name of the city</label>
+                            <input type="text" id="name" name="name" class="field-input">
+                        </div>
+                        <div class="field">
+                            <label for="lat" class="field-label">Latitude</label>
+                            <input type="text" id="lat" name="lat" class="field-input">
+                        </div>
+                        <div class="field">
+                            <label for="long" class="field-label">Longitude</label>
+                            <input type="text" id="long" name="long" class="field-input">
+                        </div>
+                        <div class="field">
+                            <label for="description" class="field-label">Description</label>
+                            <textarea type="text" id="description" name="description" class="field-input"></textarea>
+                        </div>
+                            {{> upload_bootstrap }}
+                        <div class="btn-box">
+                            <button type="submit" class="material-btn">Create</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        {{/if}}
+        </div>
+    </div>
+</template>

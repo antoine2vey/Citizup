@@ -1,0 +1,137 @@
+<template name="city">
+    <div class="row">
+        <div class="intro" style=" background-image: url('{{picture}}'); background-attachment:fixed; background-size:cover;">
+            <h1>{{name}}</h1>
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="description-container shadow-1">
+                    <div class="row">
+                        <div class="col-md-6 col-xs-12">
+                            <img src="{{picture}}" class="img-responsive img-city-single" alt="img-city"/>
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                            {{description}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h2>Places</h2>
+                <hr>
+            </div>
+            <div class="col-xs-12">
+                <div class="places-container">
+                    <div class="row">
+                        {{#each p in this.activities}}
+                            {{#if isPlaces p}}
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="img-box shadow-1">
+                                        <div class="img-size">
+                                            <img src="{{p.picture}}" class="img-responsive img-city" alt="img-place"/>
+                                        </div>
+                                        <br/>
+                                        <div class="caption">
+                                            <h3>{{p.name}}</h3>
+                                            <hr/>
+                                            <a href="/activities/{{p._id}}" class="material-btn shadow-1">See the place <i class="fa fa-eye"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {{/if}}
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h2>Events</h2>
+                <hr>
+            </div>
+            <div class="col-xs-12">
+                <div class="events-container">
+                    <div class="row">
+                        {{#each p in this.activities}}
+                            {{#if isEvents p}}
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="img-box shadow-1">
+                                        <div class="img-size">
+                                            <img src="{{p.picture}}" class="img-responsive img-city" alt="img-place"/>
+                                        </div>
+                                        <br/>
+                                        <div class="caption">
+                                            <h3>{{p.name}}</h3>
+                                            <h3>{{p.dateStart}} - {{p.dateEnd}}</h3>
+                                            <hr/>
+                                            <a href="/activities/{{p._id}}" class="material-btn shadow-1">See the event <i class="fa fa-eye"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {{/if}}
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row bg-map shadow-inset">
+            <div class="col-md-offset-3 col-md-6">
+                <div class="map-container">
+                    {{> googleMap name="CityLocalisation" options=mapOptions}}
+                </div>
+            </div>
+        </div>
+    {{#if currentUser}}
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-container">
+                    <div class="row">
+                        <div class="col-xs-4 col-xs-offset-4">
+                            <form class="new-activitie-form shadow-2" role="search">
+                                <div class="field">
+                                    <label for="name" class="field-label">Name of the activitie</label>
+                                    <input type="text" required  id="name" name="name" class="field-input">
+                                </div>
+                                <div class="field">
+                                    <label for="lat" class="field-label">Latitude</label>
+                                    <input type="text" required id="lat" name="lat" class="field-input">
+                                </div>
+                                <div class="field">
+                                    <label for="long" class="field-label">Longitude</label>
+                                    <input type="text" required id="long" name="long" class="field-input">
+                                </div>
+                                <div class="field">
+                                    <label for="nature" class="field-label">Nature</label>
+                                    <input type="text" required id="nature" name="nature" class="field-input">
+                                </div>
+                                <div class="field">
+                                    <label for="url" class="field-label">Url</label>
+                                    <input type="text" required id="url" name="url" class="field-input">
+                                </div>
+                                <div class="field">
+                                    <label for="srt" class="field-label">Start date</label>
+                                    <input type="text" id="srt" name="srt" class="field-input">
+                                </div>
+                                <div class="field">
+                                    <label for="end" class="field-label">End date</label>
+                                    <input type="text" id="end" name="end" class="field-input">
+                                </div>
+                                <div class="field">
+                                    <label for="description" class="field-label">Description</label>
+                                    <textarea type="text" required id="description" name="description" class="field-input"></textarea>
+                                </div>
+                                {{> upload_bootstrap multiple=true}}
+                                <div class="btn-box">
+                                    <button type="submit" class="material-btn">Create</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/if}}
+</template>

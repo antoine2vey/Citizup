@@ -1,0 +1,16 @@
+.about {
+    font-size:20px;
+    margin-top:25px;
+    padding:25px 50px;
+    transition:0.2s ease;
+    min-height:290px;
+}
+
+.about::first-letter {
+    font-size:35px !important;
+    color:#f44336 !important;
+}
+
+.about:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
